@@ -15,3 +15,17 @@ function insert ($params) {
 
     return true;
 }
+
+function massageValidate ($params) {
+    $errors = [];
+    $message = mb_strlen($params['message'], 'UTF-8');
+
+    if (mb_strlen($params['login'], 'UTF-8') < 2) {
+        $errors[] = 'Имя не короче 2 символов';
+    }
+
+    if ($message < 10 || $message > 140) {
+        $errors[] = 'Текст не того формата';
+    }
+    return $errors;
+}

@@ -3,7 +3,7 @@
 function extractFields ($target, $fields) {
     $arr = [];
     foreach ($fields as $field ) {
-        $arr[$fields] = trim(htmlspecialchars($target[$fields]));
+        $arr[$field] = trim(htmlspecialchars($target[$field]));
     }
 
     return $arr;
