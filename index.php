@@ -1,5 +1,5 @@
 <?php
-include_once ('modul/massages.php');
+include_once('model/massages.php');
 $message = select();
 
-include ('vew/v_index.php');
+include('views/v_index.php');

@@ -1,16 +1,17 @@
 <?php
-include_once ('modul/massages.php');
+include_once('model/massages.php');
+include_once('core/arr.php');
 
-$params = ['login' => '', 'message' => ''];
+
 
 if ($_POST['login']) {
-    $params['login'] = $_POST['login'];
-    $params['message'] = $_POST['message'];
+    $params = extractFields($_POST, ['login', 'message']);
 
     $message = insert($params);
     header('Location:index.php');
+} else {
+    $params = ['login' => '', 'message' => ''];
 }
 
-
-include ('vew/v_form.php');
+include('views/v_form.php');
 
