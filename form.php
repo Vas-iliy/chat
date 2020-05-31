@@ -19,5 +19,4 @@ if ($_POST['login']) {
     $validateErrors = [];
 }
 
-
 include ('views/v_form.php');

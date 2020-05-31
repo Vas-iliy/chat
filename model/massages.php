@@ -16,7 +16,7 @@ function insert ($params) {
     return true;
 }
 
-function massageValidate ($params) {
+function massageValidate (&$params) {
     $errors = [];
     $message = mb_strlen($params['message'], 'UTF-8');
 
@@ -27,5 +27,9 @@ function massageValidate ($params) {
     if ($message < 10 || $message > 140) {
         $errors[] = 'Текст не того формата';
     }
+
+    $params['login'] = htmlspecialchars($params['login']);
+    $params['message'] = htmlspecialchars($params['message']);
+
     return $errors;
 }
